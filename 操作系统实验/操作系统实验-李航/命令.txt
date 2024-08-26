@@ -1,0 +1,22 @@
+./fine
+
+sleep 60 & #  创建一个休眠60s的进程
+sudo bpftrace ./switchcnt.bt pid
+
+sudo bpftrace rqlen.bt
+
+
+./sem1
+gcc -g -o semaphore1 semaphore1.c
+gcc -g -o semaphore2 semaphore2.c
+sudo apt-get install gdb
+gdb semaphore1
+gdb semaphore2
+b main
+r
+n
+
+bash ~/桌面/shell.sh ~/桌面/x.txt write
+cat ~/桌面/x.txt
+strace -f -e trace=write ~/桌面/shell.sh 
+cat ~/桌面/x.txt write
