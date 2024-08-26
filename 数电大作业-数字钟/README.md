@@ -2,12 +2,12 @@
 
 幸运捏\~刷到我又又又帮你在百忙之中节省了不少时间！想必这时候的你也是忙到飞起吧哈哈，数电这个作业着实费了我不少精力
 
-给个Star\~不迷路！
-![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/%E8%A1%A8%E6%83%851.jpg)
+![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/%E8%A1%A8%E6%83%852.gif)
 
 切记请勿直接提交给老师，一定要自己理解后进行一定的修改，数字钟的文件网上也有很多，我这一版严格按照（当时老师的要求做的）
 功能可放心使用，但一定要改一下啊
 
 加油加油，小小数电，拿下拿下，要开心哇~
 
-![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/%E8%A1%A8%E6%83%852.gif)
+点个Star\~不迷路！
+![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/%E8%A1%A8%E6%83%851.jpg)
