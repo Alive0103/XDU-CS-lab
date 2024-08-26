@@ -22,4 +22,3 @@
 附一个评语
 
 ![img](https://pic.imgdb.cn/item/66cc368fd9c307b7e94fb9d5.png)
-![image](http://i1.bvimg.com/624164/5c33ad6eb5a33573.png)
