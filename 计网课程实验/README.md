@@ -5,7 +5,7 @@
 
 
 ## 题目
-![img](https://pic.imgdb.cn/item/66cc29d4d9c307b7e93e32b9.png)
+![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/4.png)
 
 初学这个项目的同学要注意eNSP的BUG，务必记录下来每次操作的步骤，最后一气呵成，保存之后就别打开了，直接交。
 
@@ -19,6 +19,7 @@
 
 虽然做得比较粗糙，但好歹该有的功能没少，老师人真的真的很好！！！给了我100昏~
 
-附一个评语
+附一个评语：
 
-![img](https://pic.imgdb.cn/item/66cc368fd9c307b7e94fb9d5.png)
+![img](https://github.com/Alive0103/XDU-CS-lab/blob/main/img/5.png)
+
