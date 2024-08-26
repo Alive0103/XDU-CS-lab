@@ -1,0 +1,30 @@
+<!--logs.wxml-->
+<view class='sum'>
+  <view class='sum_item' wx:for="{{sum}}">
+    <view class='sum_item_title'>{{item.title}}</view>
+    <view class='sum_item_val'>{{item.val}}</view>
+  </view>
+</view>
+
+<view class='detail'>
+  <view class='detail_title'>
+    <view class='detail_title_text'>番茄统计</view>
+    <view class='detail_title_type'>
+      <text class='{{activeIndex == 0 ? "active":""}}' data-index='0' bindtap='changeType'>今日</text>
+      <text class='{{activeIndex == 1 ? "active":""}}' data-index='1' bindtap='changeType'>历史</text>
+      <text class='{{activeIndex == 2 ? "active":""}}' data-index='2' bindtap='clearData'>清空记录</text>
+    </view>
+  </view>
+
+  <view class='detail_list' wx:if="{{list.length > 0}}">
+    <view class='list_item' wx:for="{{list}}">
+      <view class="list_item_date">{{item.date}}</view>
+      <view class="list_item_cate">{{cateArr[item.cate].text}}</view>
+      <view class="list_item_time">{{item.time}}分钟</view>
+    </view>
+  </view>
+
+
+  <view class='detail_list_init' wx:if="{{list.length == 0}}"> 快去专注叭！~</view>
+
+</view>
