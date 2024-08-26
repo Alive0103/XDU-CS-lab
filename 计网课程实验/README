@@ -1,11 +1,11 @@
 # 计网课程实验-高悦（22级）
 
-这个作业参考了[这篇博客](https://blog.csdn.net/weixin_73795426/article/details/139184296),但这篇博客在路由转发的配置时有错误，可以对比我的操作试一下，
+这个作业参考了[这篇博客](https://blog.csdn.net/weixin_73795426/article/details/139184296) ,但这篇博客在路由转发的配置时有错误，可以对比我的操作试一下，
 这个错误也是比较诡异了，我不知道为啥他的配置看起来没毛病，但实际配置完成后一版成功转发，另一半失败，失败的那一半怎么配置都无法解决，遂自己学习后换了个配置方法，成功解决。
 
 
 ## 题目
-![](https://pic.imgdb.cn/item/66cc29d4d9c307b7e93e32b9.png)
+![img](https://pic.imgdb.cn/item/66cc29d4d9c307b7e93e32b9.png)
 
 初学这个项目的同学要注意eNSP的BUG，务必记录下来每次操作的步骤，最后一气呵成，保存之后就别打开了，直接交。
 
@@ -21,4 +21,4 @@
 
 附一个评语
 
-![](https://pic.imgdb.cn/item/66cc368fd9c307b7e94fb9d5.png)
+![img](https://pic.imgdb.cn/item/66cc368fd9c307b7e94fb9d5.png)
