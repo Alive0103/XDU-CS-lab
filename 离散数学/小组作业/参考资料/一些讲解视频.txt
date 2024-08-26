@@ -1,0 +1,30 @@
+【算法小讲堂之最短路算法(Floyd+bellman+SPFA+Dijkstra)】 https://www.bilibili.com/video/BV1Fa411C7wX/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+
+【算法小讲堂之最短路算法(Floyd+bellman+SPFA+Dijkstra)】 https://www.bilibili.com/video/BV1Fa411C7wX/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【最短路径Floyd算法】 https://www.bilibili.com/video/BV1LE411R7CS/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【数据结构1800题型-Floyd算法求最短路径】 https://www.bilibili.com/video/BV1hP4y1t7PE/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【【最短路径算法】30分钟带你掌握所有最短路算法 #dijkstra #bellman-ford #spfa #floyd】 https://www.bilibili.com/video/BV1rZ4y127YZ/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【304 最短路 Johnson 算法】 https://www.bilibili.com/video/BV1KS4y1q7Kc/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【【Unity】简单粗暴 10分钟理解A*寻路算法 附源码】 https://www.bilibili.com/video/BV1v44y1h7Dt/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【A*寻路算法详解 #A星 #启发式搜索】 https://www.bilibili.com/video/BV1bv411y79P/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【贝尔曼福特算法说人话版(Bellman-Ford)】 https://www.bilibili.com/video/BV1j34y1s7d8/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【贝尔曼福特算法伪代码可视化版(Bellman-Ford)】 https://www.bilibili.com/video/BV1YW4y1672j/?share_source=copy_web
+
+【求解最短路径问题的一快与一慢(Dijkstra vs Bellman-Ford)】 https://www.bilibili.com/video/BV1QU4y1e7kE/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【Bellman-Ford算法】 https://www.bilibili.com/video/BV1Sp4y1S7pd/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【Bellman Ford 单源最短路径算法【中字】】 https://www.bilibili.com/video/BV1gb41137u4/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【【算法】最短路径查找—Dijkstra算法】 https://www.bilibili.com/video/BV1zz4y1m7Nq/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
+
+【Dijkstra算法求最短路径】 https://www.bilibili.com/video/BV11P4y1a7X9/?share_source=copy_web&vd_source=4bd852f834f2d9a6a8ce0609a36001d4
