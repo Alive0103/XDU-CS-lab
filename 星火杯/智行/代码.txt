@@ -1,0 +1,238 @@
+module trafficlight(
+	input clk,
+	input rst_n,
+    input emg,
+    input night,
+    output reg[2:0] rgb_led,
+    output reg[7:0] led,
+	output shift_clk,
+    output latch_clk,
+    output seg_data
+);
+
+
+wire [7:0] data1;
+wire [7:0] data2;
+reg [7:0] odata1;
+reg [7:0] odata2;
+wire [7:0] data3;
+wire [7:0] data4;
+reg [7:0] odata3;
+reg [7:0] odata4;
+reg [31:0] cnt;
+reg [7:0] light_dongxi;
+reg [7:0] light_nanbei;
+reg [3:0] state;
+always@(posedge clk)
+
+//2. 出现紧急情况状态
+begin
+	if (!emg) //emergency
+    begin
+        light_dongxi <= 8'd99;
+        light_nanbei<=8'd99;
+		odata1 <= data1;
+		odata2 <= data2;
+        odata3 <= data3;
+		odata4 <= data4;
+        state<=3'd4;
+End
+
+    else if(!night)//night
+    begin
+        light_dongxi <= 8'd88;
+        light_nanbei<=8'd88;
+		odata1 <= data1;
+		odata2 <= data2;
+        odata3 <= data3;
+		odata4 <= data4;
+        state<=3'd5;
+    end
+    else
+    begin
+    if(!rst_n)
+		begin
+            state <= 3'd0;
+			light_dongxi <= 8'd23;
+            light_nanbei<=8'd20;
+            //led<=8'b1111_1110;
+		End
+
+else if(cnt==32'd50000000)
+		begin
+			cnt <= 1'b0;
+			case (state)
+			4'd0://dongxi red nanbei green
+				begin
+					if(light_nanbei==8'h1)
+					begin
+						state <= 4'd1;
+                        light_dongxi<=8'd20;
+                        light_dongxi<=light_dongxi-1'b1;
+                        light_nanbei<=8'd3;
+					end
+					else
+					begin
+						light_dongxi <= light_dongxi - 1'b1;
+                      light_nanbei<=light_nanbei-1'b1;  
+                        rgb_led<=3'b100;
+                        led<=8'b0111_1111;
+					end
+				end
+			
+                4'd1://dongxi red nanbei yellow
+				begin
+					if(light_dongxi==8'h3)
+                begin
+						state <= 4'd7;
+            light_dongxi <= light_dongxi - 1'b1;
+              light_nanbei<=light_nanbei-1'b1;
+              led<=8'b1110_1111;
+                       end 
+                    else if(light_dongxi==8'h1)
+                    begin
+                     state<=4'd2;
+                        light_dongxi <= 8'd20;
+                        light_nanbei<=8'd23;
+                        rgb_led<=3'b100;
+                        led<=8'b1110_1111;
+                        end
+					else
+					begin
+						light_dongxi <= light_dongxi - 1'b1;
+                        light_nanbei<=light_nanbei-1'b1;  
+                        rgb_led<=3'b100;
+                        led<=8'b1110_1111;
+					end
+				end
+             
+			4'd2://dongxi green nanbei red
+				begin
+					if(light_dongxi==8'h1)
+					begin
+						state <= 4'd3;
+                        light_dongxi <= 8'd3;
+                        light_nanbei<=light_nanbei-1'b1;
+					end
+					else
+					begin
+						light_dongxi <= light_dongxi - 1'b1;
+                        light_nanbei<=light_nanbei-1'b1;
+                        rgb_led<=3'b010;
+                        led<=8'b1111_1110;
+					end
+				end
+            4'd3://dongxi yellow nanbei red
+            begin
+					if(light_nanbei==8'h3)
+                    begin
+                    state<=4'd8;
+                    light_dongxi <= light_dongxi - 1'b1;
+                     light_nanbei<=light_nanbei-1'b1;
+                     rgb_led<=3'b110;
+                    end
+                    else if(light_nanbei==8'h1)
+					begin
+						state <= 4'd0;
+                        light_dongxi <= 8'd23;
+                        light_nanbei<=8'd20;
+                        rgb_led<=3'b110;
+                        led<=8'b1111_1110;
+					end
+					else
+					begin
+						light_dongxi <= light_dongxi - 1'b1;
+                        light_nanbei<=light_nanbei-1'b1;
+                        rgb_led<=3'b110;
+                        led<=8'b1111_1110;
+					end
+				end
+               4'd4://dongxi red nanbei red
+               begin
+               if(light_dongxi==8'h1)
+               begin
+                        state<=4'd0;
+                        light_dongxi <= 8'd23;
+                        light_nanbei<=8'd20;
+               end
+                else
+                begin
+						light_dongxi <= light_dongxi - 1'b1;
+                        light_nanbei<=light_nanbei-1'b1;
+                        rgb_led<=3'b100;
+                        led<=8'b1111_1110;
+                 end       
+                end
+                4'd5://dongxi yellow nanbei yellow
+                begin 
+                rgb_led<=3'b110;
+                led<=8'b1110_1111;
+                state<=4'd6;
+                end
+                4'd6://dongxi none nanbei none
+                begin 
+                rgb_led<=3'b000;
+                led<=8'b1111_1111;
+                state<=4'd5;
+                end
+                4'd7://dongxi none nanbei yellow
+                begin
+                    light_dongxi<=8'd1;
+                    light_nanbei=8'd1;
+                    state<=4'd1;
+                    rgb_led<=3'b000;
+                led<=8'b1110_1111;
+                end
+                4'd8://dongxi yellow nanbei none
+                begin
+                    state<=4'd3;
+                    light_nanbei=8'd1;
+                     light_dongxi<=8'd1;
+                    rgb_led<=3'b110;
+                    led<=8'b1111_1111;
+                end
+          
+			endcase
+            odata1<=data1;
+            odata2<=data2;
+			odata3 <= data3;
+			odata4 <= data4;	
+		end
+	else
+		cnt <= cnt + 1'b1;
+    end
+End
+
+binary_to_bcd u_binary_to_bcd_1(
+	.binary_input (light_nanbei),
+	.bcd_low (data1),
+	.bcd_high (data2)
+);
+//东西车道状态
+binary_to_bcd u_binary_to_bcd_2(
+	.binary_input (light_dongxi),
+	.bcd_low (data3),
+	.bcd_high (data4)
+);、
+
+hc595_display_input u_hc595_display  ////Call hc595_display_input to display numbers
+                    ( 
+                        .clk		(clk),
+                        .rst_n		(rst_n),
+                        //To be displayed
+                        .data1		(odata1),
+                        .data2		(odata2),
+                        .data3		(odata3),
+                        .data4		(odata4),
+                        .data5		(8'hff),
+                        .data6		(8'heb),
+                        .data7		(8'hff),
+                        .data8		(8'hb7),
+                        //control signals of hc595
+                        .shcp		(shift_clk),   //shift clk
+                        .stcp		(latch_clk),   //latch clk
+                        .seg_data	(seg_data)
+                    ); 
+	
+endmodule
+
