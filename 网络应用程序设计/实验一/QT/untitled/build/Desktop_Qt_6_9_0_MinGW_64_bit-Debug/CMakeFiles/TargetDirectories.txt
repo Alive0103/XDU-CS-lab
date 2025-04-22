@@ -1,0 +1,13 @@
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/untitled.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/untitled_lupdate.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/update_translations.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/untitled_lrelease.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/release_translations.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/untitled_autogen_timestamp_deps.dir
+D:/代码集合/QT/untitled/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/untitled_autogen.dir
