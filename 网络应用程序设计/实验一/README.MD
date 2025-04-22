@@ -1,2 +1,1 @@
-服务器端代码：链接：http://139.155.27.201:8889/down/xa70YafOF6p0 提取码：nfTeT5
-客户端的在这里
+chatserver.service 应在路径/etc/systemd/system下
