@@ -1,0 +1,20 @@
+
+[Unit]
+Description=Chat Server Daemon
+After=network.target
+
+[Service]
+Type=simple                  # 明确服务类型
+User=lighthouse
+Group=lighthouse
+WorkingDirectory=/home/lighthouse/chat_server/bin
+ExecStart=/home/lighthouse/chat_server/bin/chatserver
+Restart=on-failure           # 仅在失败时重启
+RestartSec=5s                # 重启间隔延长到5秒
+
+# 日志重定向到系统日志
+# StandardOutput=syslog
+# StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
