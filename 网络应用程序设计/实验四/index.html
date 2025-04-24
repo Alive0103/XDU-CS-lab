@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物联网设备控制台</title>
+    <script src="https://unpkg.com/mqtt@5.3.0/dist/mqtt.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fff;
+        }
+
+        .status-bar {
+            color: #2ecc71; /* 连接中状态颜色 */
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .message-container {
+            height: 300px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        #commandInput {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #sendButton {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态显示 -->
+    <div class="status-bar" id="status">状态：连接中...</div>
+    
+    <!-- 消息展示区域 -->
+    <div class="message-container" id="messages"></div>
+    
+    <!-- 控制输入区 -->
+    <div class="input-group">
+        <input 
+            type="text" 
+            id="commandInput" 
+            placeholder="输入控制指令（格式：设备ID:指令）"
+            value="device01:led=on"
+        >
+        <button id="sendButton" onclick="sendCommand()">发送</button>
+    </div>
+
+    <script>
+        // ================= MQTT连接配置 =================
+        const client = mqtt.connect('ws://139.155.27.201:8083/mqtt', {
+            username: 'web_user',
+            password: 'web_user',
+            clientId: 'web_user' 
+        });
+
+        // ================= 连接状态管理 =================
+        client.on('connect', () => {
+            document.getElementById('status').textContent = '状态：已连接';
+            document.getElementById('status').style.color = '#27ae60';
+            
+            // 自动订阅设备状态主题
+            client.subscribe('status/#', (err) => {
+                if (!err) addSystemMessage('成功订阅设备状态主题');
+            });
+        });
+
+        client.on('error', (err) => {
+            document.getElementById('status').textContent = `错误：${err.message}`;
+            document.getElementById('status').style.color = '#e74c3c';
+        });
+
+        // ================= 消息处理逻辑 =================
+        client.on('message', (topic, payload) => {
+            const msg = document.createElement('div');
+            msg.textContent = `[${new Date().toLocaleTimeString()}] ${topic}: ${payload.toString()}`;
+            msg.style.padding = '5px 0';
+            msg.style.borderBottom = '1px solid #eee';
+            document.getElementById('messages').appendChild(msg);
+            messages.scrollTop = messages.scrollHeight; // 自动滚动到底部
+        });
+
+        // ================= 设备控制逻辑 =================
+        const sendCommand = () => {
+            const input = document.getElementById('commandInput').value.trim();
+            if (!input) return;
+
+            try {
+                const [deviceId, command] = input.split(':');
+                if (!deviceId || !command) throw new Error('指令格式错误');
+                
+                client.publish(`control/${deviceId}`, command);
+                addSystemMessage(`已发送指令到 ${deviceId}`);
+            } catch (err) {
+                addSystemMessage(`错误：${err.message}`, true);
+            }
+        }
+
+        // ================= 辅助函数 =================
+        const addSystemMessage = (text, isError = false) => {
+            const msg = document.createElement('div');
+            msg.textContent = `[系统] ${new Date().toLocaleTimeString()} ${text}`;
+            msg.style.color = isError ? '#e74c3c' : '#7f8c8d';
+            msg.style.fontSize = '12px';
+            msg.style.margin = '4px 0';
+            document.getElementById('messages').appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
