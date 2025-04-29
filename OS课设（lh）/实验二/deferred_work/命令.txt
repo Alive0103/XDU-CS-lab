@@ -1,0 +1,5 @@
+cd lab/2
+vi deferred_work.c
+make
+sudo insmod kernel_module.ko
+dmesg
