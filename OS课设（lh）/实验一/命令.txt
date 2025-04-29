@@ -1,0 +1,5 @@
+cd lab/1
+vi kernel_module.c
+make
+sudo insmod kernel_module.ko
+dmesg
